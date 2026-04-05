@@ -1,11 +1,27 @@
 class Package:
-    def __init__(self, package_id, address, deadline, city, zip_code, weight, special_note, status="At Hub"):
+    #init function so packages can be created using these variables
+    def __init__(self, package_id, address, city, state, zip_code, deadline, weight, special_note, status="At Hub"):
         self.package_id = package_id
         self.address = address
-        self.deadline = deadline
         self.city = city
+        self.state = state
         self.zip_code = zip_code
+        self.deadline = deadline
         self.weight = weight
         self.special_note = special_note
         self.status = status
-        self.delivery_time = None  # Update when delivered
+        self.departure_time = None
+        self.delivery_time = None
+
+    #Function to update the status based on a user-defined time
+    def update_status(self, current_time):
+        if self.delivery_time and current_time >= self.delivery_time:
+            self.status = "Delivered"
+        elif self.departure_time and current_time >= self.departure_time:
+            self.status = "En Route"
+        else:
+            self.status = "At Hub"
+
+    # str function so that packages can be printed with the variables we need to see
+    def __str__(self):
+        return f"{self.package_id}, {self.address}, {self.city}, {self.state}, {self.zip_code}, {self.deadline}, {self.weight}, {self.delivery_time}, {self.status}"
