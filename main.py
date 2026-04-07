@@ -144,12 +144,12 @@ def main():
     for i in range(1, 41):
         pkg = my_hash_table.lookup(i)
         pkg.update_status(convert_time)
-        print(str(pkg) + " - " + str(user_time))
+        print(str(pkg))
 
     # Print each truck's mileage
-    print(truck1.mileage)
-    print(truck2.mileage)
-    print(truck3.mileage)
+    print("Truck 1 total mileage(end of day): " + str(truck1.mileage))
+    print("Truck 2 total mileage(end of day): " + str(truck2.mileage))
+    print("Truck 3 total mileage(end of day): " + str(truck3.mileage))
 
 # Run program
 main()

@@ -24,4 +24,4 @@ class Package:
 
     # str function so that packages can be printed with the variables we need to see
     def __str__(self):
-        return f"{self.package_id}, {self.address}, {self.city}, {self.state}, {self.zip_code}, {self.deadline}, {self.weight}, {self.delivery_time}, {self.status}"
+        return f"ID: {self.package_id} | Address: {self.address}, {self.city}, {self.state} {self.zip_code} | Deadline: {self.deadline} | Delivery time: {self.delivery_time} | Status: {self.status}"
