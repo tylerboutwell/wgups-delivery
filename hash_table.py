@@ -21,9 +21,9 @@ class HashTable:
     def lookup(self, package_id):
         index = package_id % self.size
         bucket = self.table[index]
-
+        # Find and return complete package object containing all required data components
         for key, package in bucket:
             if key == package_id:
                 return package
-
+        #If not found return none
         return None
