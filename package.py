@@ -28,6 +28,13 @@ class Package:
         else:
             self.status = "At Hub"
 
+        # If it's package 9 and after 10:20, fix address
+        if self.package_id == 9 and current_time >= datetime.timedelta(hours=10, minutes=20):
+            self.address = "410 S State St"
+            self.city = "Salt Lake City"
+            self.state = "UT"
+            self.zip = "84111"
+
     # str function so that packages can be printed with the variables we need to see
     def __str__(self):
         return f"ID: {self.package_id} | Address: {self.address}, {self.city}, {self.state} {self.zip_code} | Deadline: {self.deadline} | Delivery time: {self.delivery_time} | Status: {self.status}"

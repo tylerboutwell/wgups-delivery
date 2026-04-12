@@ -80,16 +80,6 @@ def deliver_packages(truck, hash_table, distance_data, address_data):
         next_package = None
         next_package_distance = 200000
         for package in not_delivered:
-            # If package 9 skip until it's address is corrected
-            if package.package_id == 9 and truck.time < datetime.timedelta(hours=10, minutes=20):
-                continue
-
-            # If after 10:20, fix package 9's address
-            if package.package_id == 9 and truck.time >= datetime.timedelta(hours=10, minutes=20):
-                package.address = "410 S State St"
-                package.city = "Salt Lake City"
-                package.state = "UT"
-                package.zip = "84111"
 
             if distance_in_between(package.address, truck.address, distance_data, address_data) < next_package_distance:
                 next_package = package
@@ -122,8 +112,8 @@ def main():
     address_data = load_address_data()
 
     # Load Trucks
-    truck1 = Truck(16, 18, [1, 13, 14, 15, 16, 19, 20, 29, 30, 31, 32, 37], 0.0, "4001 South 700 East", datetime.timedelta(hours=8))
-    truck2 = Truck(16, 18, [3, 6, 18, 25, 28, 33, 34, 35, 36, 38, 39, 40], 0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
+    truck1 = Truck(16, 18, [1, 13, 14, 15, 16, 19, 20, 29, 30, 31, 37], 0.0, "4001 South 700 East", datetime.timedelta(hours=8))
+    truck2 = Truck(16, 18, [3, 6, 18, 25, 28, 32, 33, 34, 35, 36, 38, 39, 40], 0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
     truck3 = Truck(16, 18, [2, 4, 5, 7, 8, 9, 10, 11, 12, 17, 21, 22, 23, 24, 26, 27], 0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
 
     # Run Deliveries
