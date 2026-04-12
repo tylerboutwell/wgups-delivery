@@ -122,8 +122,8 @@ def main():
     address_data = load_address_data()
 
     # Load Trucks
-    truck1 = Truck(16, 18, [1, 13, 14, 15, 16, 19, 20, 29, 30, 31, 32], 0.0, "4001 South 700 East", datetime.timedelta(hours=8))
-    truck2 = Truck(16, 18, [3, 6, 18, 25, 28, 33, 34, 35, 36, 37, 38, 39, 40], 0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
+    truck1 = Truck(16, 18, [1, 13, 14, 15, 16, 19, 20, 29, 30, 31, 32, 37], 0.0, "4001 South 700 East", datetime.timedelta(hours=8))
+    truck2 = Truck(16, 18, [3, 6, 18, 25, 28, 33, 34, 35, 36, 38, 39, 40], 0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
     truck3 = Truck(16, 18, [2, 4, 5, 7, 8, 9, 10, 11, 12, 17, 21, 22, 23, 24, 26, 27], 0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
 
     # Run Deliveries
