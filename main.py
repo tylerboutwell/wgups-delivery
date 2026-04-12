@@ -140,10 +140,15 @@ def main():
     (h, m) = user_time.split(':')
     convert_time = datetime.timedelta(hours=int(h), minutes=int(m), seconds=0)
 
-    # Loop through all 40 packages and print them with the user inputted time
-    for i in range(1, 41):
-        pkg = my_hash_table.lookup(i)
-        pkg.update_status(convert_time)
+    #Print status of each trucks' packages with the truck's id as the header
+    print("--Truck 1 packages--")
+    for pkg in truck1.packages:
+        print(str(pkg))
+    print("--Truck 2 packages--")
+    for pkg in truck2.packages:
+        print(str(pkg))
+    print("--Truck 3 packages--")
+    for pkg in truck3.packages:
         print(str(pkg))
 
     # Print each truck's mileage
