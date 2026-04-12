@@ -140,15 +140,18 @@ def main():
     (h, m) = user_time.split(':')
     convert_time = datetime.timedelta(hours=int(h), minutes=int(m), seconds=0)
 
-    #Print status of each trucks' packages with the truck's id as the header
+    #Update and print status of each trucks' packages with the truck's id as the header
     print("--Truck 1 packages--")
     for pkg in truck1.packages:
+        pkg.update_status(convert_time)
         print(str(pkg))
     print("--Truck 2 packages--")
     for pkg in truck2.packages:
+        pkg.update_status(convert_time)
         print(str(pkg))
     print("--Truck 3 packages--")
     for pkg in truck3.packages:
+        pkg.update_status(convert_time)
         print(str(pkg))
 
     # Print each truck's mileage

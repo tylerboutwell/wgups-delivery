@@ -1,3 +1,6 @@
+import datetime
+
+
 class Package:
     #init function so packages can be created using these variables
     def __init__(self, package_id, address, city, state, zip_code, deadline, weight, special_note, status="At Hub"):
@@ -19,6 +22,9 @@ class Package:
             self.status = "Delivered"
         elif self.departure_time and current_time >= self.departure_time:
             self.status = "En Route"
+        #Packages 6, 25, 28, and 32 do not arrive to the hub until 9:05
+        elif (self.package_id == 6 or self.package_id == 25 or self.package_id == 28 or self.package_id == 32) and current_time < datetime.timedelta(hours=9, minutes=5):
+            self.status = "Delayed on flight - Not arrived"
         else:
             self.status = "At Hub"
 
